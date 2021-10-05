@@ -1,14 +1,19 @@
-import logo from './logo.svg';
-import { useState } from 'react';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
-function App() {
+import { Home } from './containers/Home/Home';
+import { NavBar } from './components';
+
+const App: React.FC = () => {
   return (
-    <div>
-      <header>
-        <p>Hello</p>
-      </header>
-    </div>
+    <>
+      <NavBar />
+      <Router>
+        <Switch>
+          <Home />
+        </Switch>
+      </Router>
+    </>
   );
-}
+};
 
 export default App;
