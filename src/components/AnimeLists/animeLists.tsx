@@ -10,6 +10,7 @@ import {
 
 import { ANIME_LIST } from '../../graphql/querries/animeList';
 import { Grid } from '@mui/material';
+import NoResultsFound from '../NoResultsFound/noResultsFound';
 import { styled } from '@mui/material/styles';
 import { useAppSelector } from '../../hooks';
 import { useQuery } from '@apollo/client';
@@ -64,24 +65,28 @@ const AnimeLists: React.FC = () => {
 
   return (
     <>
-      <main>
-        <SectionTitle
-          title={type.charAt(0) + type.slice(1).toLowerCase() + ' List'}
-          link="/viewmore"
-        />
-        <AnimeGrid container spacing={2} gap={2}>
-          {data?.Page?.media?.map((anime) => (
-            <Grid item key={anime?.id}>
-              <AnimeList anime={anime as AnimeListTypes.AnimeList_Page_media} />
-            </Grid>
-          ))}
-        </AnimeGrid>
-        <PaginationContatiner container alignContent="center" justifyContent="center">
-          <Pagination
-            pageInfo={data?.Page?.pageInfo as AnimeListTypes.AnimeList_Page_pageInfo}
+      {data?.Page?.pageInfo?.total ? (
+        <main>
+          <SectionTitle
+            title={type.charAt(0) + type.slice(1).toLowerCase() + ' List'}
+            link="/viewmore"
           />
-        </PaginationContatiner>
-      </main>
+          <AnimeGrid container spacing={2} gap={2}>
+            {data?.Page?.media?.map((anime) => (
+              <Grid item key={anime?.id}>
+                <AnimeList anime={anime as AnimeListTypes.AnimeList_Page_media} />
+              </Grid>
+            ))}
+          </AnimeGrid>
+          <PaginationContatiner container alignContent="center" justifyContent="center">
+            <Pagination
+              pageInfo={data?.Page?.pageInfo as AnimeListTypes.AnimeList_Page_pageInfo}
+            />
+          </PaginationContatiner>
+        </main>
+      ) : (
+        <NoResultsFound />
+      )}
     </>
   );
 };

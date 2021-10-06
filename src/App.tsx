@@ -6,8 +6,8 @@ import { NavBar } from './components';
 const App: React.FC = () => {
   return (
     <>
-      <NavBar />
       <Router>
+        <NavBar />
         <Switch>
           <Home />
         </Switch>

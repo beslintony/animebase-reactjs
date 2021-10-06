@@ -1,3 +1,4 @@
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import {
   pageConfigActionDispatch,
   searchQueryActionDispatch,
@@ -19,10 +20,8 @@ import { useState } from 'react';
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  //   backgroundColor: alpha(pink[600], 0.15),
   '&:hover': {
     boxShadow: 2,
-    // backgroundColor: alpha(pink[600], 0.25),
   },
   marginLeft: 0,
   width: '100%',
@@ -78,6 +77,15 @@ const NavBar: React.FC = () => {
 
   const [value, setValue] = useState('');
 
+  const location = useLocation();
+  const history = useHistory();
+
+  // get the URL Parameter after the keyword ="?search"
+  if (location.pathname === '/' && location.search.includes('?search=')) {
+    const URLQuery = location.search.slice(8);
+    setQuery(URLQuery);
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent">
@@ -94,8 +102,17 @@ const NavBar: React.FC = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
-            ANIMEBASE
+            onClick={() => {
+              setQuery('');
+            }}
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', sm: 'block' },
+              textDecoration: 'none',
+            }}>
+            <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/">
+              ANIMEBASE
+            </Link>
           </Typography>
           <Search sx={{ boxShadow: 1 }}>
             <SearchIconWrapper>
@@ -113,6 +130,10 @@ const NavBar: React.FC = () => {
                   e.preventDefault();
                   setQuery(value);
                   setPage(1);
+                  history.push({
+                    pathname: '/',
+                    search: `?search=${value}`,
+                  });
                 }
               }}
             />
