@@ -1,14 +1,5 @@
-import {
-  AnimeList,
-  AnimeListVariables,
-} from '../../graphql/querries/__generated__/AnimeList';
-
 import { RootState } from '../../store/store';
 import { createSelector } from 'reselect';
-
-// export interface RootState {
-//   animeListVariables: AnimeListVariables;
-// }
 
 const selectAnimeList = (state: RootState) => state.animeList;
 

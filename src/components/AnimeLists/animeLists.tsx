@@ -2,17 +2,14 @@ import * as AnimeListTypes from '../../graphql/querries/__generated__/AnimeList'
 
 import { AnimeList, Loading, Pagination, SectionTitle } from '..';
 import { pageSelector, perPageSelector, typeSelector } from './selectors';
-import { setPage, setPerPage, setType } from './animeListSlice';
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { setPage, setPerPage, setType } from '../../store/slices/animeListSlice';
 
 import { ANIME_LIST } from '../../graphql/querries/animeList';
-import { AnimeListVariables } from '../../graphql/querries/__generated__/AnimeList';
 import { Dispatch } from 'redux';
 import { Grid } from '@mui/material';
-import { MediaType } from '../../graphql/globalTypesFile';
 import React from 'react';
-import sectionTitle from '../SectionTitle/sectionTitle';
 import { styled } from '@mui/material/styles';
+import { useAppSelector } from '../../hooks';
 import { useQuery } from '@apollo/client';
 
 const PaginationContatiner = styled(Grid)({
@@ -28,7 +25,6 @@ const AnimeGrid = styled(Grid)({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  margin: '1px',
   maxWidth: '1200px',
 });
 
@@ -40,8 +36,6 @@ export const pageConfigActionDispatch = (dispatch: Dispatch) => ({
 });
 
 const AnimeLists: React.FC = () => {
-  const { setType, setPage, setPerPage } = pageConfigActionDispatch(useAppDispatch());
-
   const page = useAppSelector(pageSelector);
   const perPage = useAppSelector(perPageSelector);
   const type = useAppSelector(typeSelector);
@@ -56,7 +50,7 @@ const AnimeLists: React.FC = () => {
       perPage: perPage,
     },
   });
-  console.log(data);
+  console.log('PAGE_LIST_DATA', data);
 
   if (loading) {
     return <Loading />;
@@ -70,19 +64,13 @@ const AnimeLists: React.FC = () => {
     );
   }
 
-  // const { setPage } = actionDispatch(useAppDispatch());
-
-  // setPage(12);
-  // setType('ANIME' as MediaType);
-  // setPerPage(36);
-
   return (
     <>
       <main>
         <SectionTitle title="Anime List" link="/viewmore" />
-        <AnimeGrid container spacing={2}>
+        <AnimeGrid container spacing={2} gap={2}>
           {data?.Page?.media?.map((anime) => (
-            <Grid item key={anime?.id} xs={12} sm={6} md={4} lg={3}>
+            <Grid item key={anime?.id}>
               <AnimeList anime={anime as AnimeListTypes.AnimeList_Page_media} />
             </Grid>
           ))}

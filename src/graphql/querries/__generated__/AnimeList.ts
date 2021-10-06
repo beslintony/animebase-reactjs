@@ -60,6 +60,10 @@ export interface AnimeList_Page_media {
    */
   title: AnimeList_Page_media_title | null;
   /**
+   * The type of the media; anime or manga
+   */
+  type: MediaType | null;
+  /**
    * The current releasing status of the media
    */
   status: MediaStatus | null;

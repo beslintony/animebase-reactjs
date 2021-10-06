@@ -1,5 +1,5 @@
 import ReduxLogger from 'redux-logger';
-import animeListReducer from '../components/AnimeLists/animeListSlice';
+import animeListReducer from './slices/animeListSlice';
 import { configureStore } from '@reduxjs/toolkit';
 
 const middleware = (getDefaultMiddleware: any) =>

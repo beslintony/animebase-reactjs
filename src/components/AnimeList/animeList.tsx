@@ -4,6 +4,7 @@ import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { pageSelector, perPageSelector, typeSelector } from '../AnimeLists/selectors';
 
 import { Link } from 'react-router-dom';
+import { MediaType } from '../../graphql/globalTypesFile';
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import { useAppSelector } from '../../hooks';
@@ -26,7 +27,6 @@ animation: animateImage 1s;
     opacity: 1;
   }
 }
-// z-index: 10;
 &: hover {
   background: linear-gradient(
     to bottom,
@@ -90,9 +90,9 @@ interface animeListProps {
 }
 
 const AnimeList: React.FC<animeListProps> = ({ anime }) => {
-  const page = useAppSelector(pageSelector);
-  const perPage = useAppSelector(perPageSelector);
-  const type = useAppSelector(typeSelector);
+  // const page = useAppSelector(pageSelector);
+  // const perPage = useAppSelector(perPageSelector);
+  // const type = useAppSelector(typeSelector);
 
   // const {
   //   pageConfig: { page },
@@ -104,10 +104,10 @@ const AnimeList: React.FC<animeListProps> = ({ anime }) => {
   //   pageConfig: { type },
   // } = useAppSelector(makeSelectAnimeList);
 
-  console.log('page', page);
+  // console.log('page', page);
 
-  console.log('clgPerpage', perPage);
-  console.log('clgType', type);
+  // console.log('clgPerpage', perPage);
+  // console.log('clgType', type);
 
   const title: string | undefined | null =
     anime?.title?.english ?? anime?.title?.romaji ?? anime?.title?.native;
@@ -115,7 +115,7 @@ const AnimeList: React.FC<animeListProps> = ({ anime }) => {
   return (
     <>
       <Card sx={{ width: 210, boxShadow: 5 }}>
-        <Link to={`/animes/${anime?.id}`}>
+        <Link to={`/${anime?.type?.toLowerCase()}/${anime?.id}`}>
           <CardMediaContainer>
             <CardMedia
               component="img"

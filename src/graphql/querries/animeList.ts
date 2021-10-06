@@ -11,6 +11,7 @@ export const ANIME_LIST = gql`
           english
           native
         }
+        type
         status
         coverImage {
           extraLarge
