@@ -1,7 +1,11 @@
 import * as AnimeListTypes from '../../graphql/querries/__generated__/AnimeList';
 
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
-import { pageSelector, perPageSelector, typeSelector } from '../AnimeLists/selectors';
+import {
+  pageSelector,
+  perPageSelector,
+  typeSelector,
+} from '../../store/selectors/animeListSelectors';
 
 import { Link } from 'react-router-dom';
 import { MediaType } from '../../graphql/globalTypesFile';

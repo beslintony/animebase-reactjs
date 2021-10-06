@@ -1,7 +1,11 @@
 import * as AnimeListTypes from '../../graphql/querries/__generated__/AnimeList';
 
 import { AnimeList, Loading, Pagination, SectionTitle } from '..';
-import { pageSelector, perPageSelector, typeSelector } from './selectors';
+import {
+  pageSelector,
+  perPageSelector,
+  typeSelector,
+} from '../../store/selectors/animeListSelectors';
 import { setPage, setPerPage, setType } from '../../store/slices/animeListSlice';
 
 import { ANIME_LIST } from '../../graphql/querries/animeList';

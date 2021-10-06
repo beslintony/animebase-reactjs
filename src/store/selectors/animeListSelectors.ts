@@ -1,4 +1,4 @@
-import { RootState } from '../../store/store';
+import { RootState } from '../store';
 import { createSelector } from 'reselect';
 
 const selectAnimeList = (state: RootState) => state.animeList;
