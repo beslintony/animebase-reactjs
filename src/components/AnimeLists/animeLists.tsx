@@ -17,8 +17,8 @@ import { useQuery } from '@apollo/client';
 
 const PaginationContatiner = styled(Grid)({
   display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  // justifyContent: 'center',
+  // alignItems: 'center',
   marginTop: '3rem',
   marginBottom: '1rem',
   width: '100%',
@@ -26,8 +26,17 @@ const PaginationContatiner = styled(Grid)({
 
 const AnimeGrid = styled(Grid)({
   display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  justifyContent: 'flex-start',
+  alignItems: 'flex-start',
+  minWidth: '1200px',
+  minHeight: '80vh',
+});
+
+const Page = styled('main')({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'initial',
+  alignItems: 'display-between',
   maxWidth: '1200px',
 });
 
@@ -66,7 +75,7 @@ const AnimeLists: React.FC = () => {
   return (
     <>
       {data?.Page?.pageInfo?.total ? (
-        <main>
+        <Page>
           <SectionTitle
             title={type.charAt(0) + type.slice(1).toLowerCase() + ' List'}
             link="/viewmore"
@@ -83,7 +92,7 @@ const AnimeLists: React.FC = () => {
               pageInfo={data?.Page?.pageInfo as AnimeListTypes.AnimeList_Page_pageInfo}
             />
           </PaginationContatiner>
-        </main>
+        </Page>
       ) : (
         <NoResultsFound />
       )}

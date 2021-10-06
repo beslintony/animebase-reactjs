@@ -5,7 +5,9 @@ import {
 } from '../../store/dispatchers';
 
 import AppBar from '@mui/material/AppBar';
+import BasicModal from '../BasicModal/basicModal';
 import Box from '@mui/material/Box';
+import { Button } from '@mui/material';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
@@ -44,15 +46,12 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   justifyContent: 'center',
 }));
 
-const FilterIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 1),
-  height: '100%',
-  position: 'relative',
-  pointerEvents: 'none',
+const FilterIcon = styled(FilterListIcon)(({ theme }) => ({
+  margin: theme.spacing(0.5),
   cursor: 'pointer',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  '&:hover': {
+    color: 'grey',
+  },
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -71,11 +70,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
+
 const NavBar: React.FC = () => {
   const { setQuery } = searchQueryActionDispatch(useAppDispatch());
   const { setPage } = pageConfigActionDispatch(useAppDispatch());
 
   const [value, setValue] = useState('');
+
+  const [open, setOpen] = useState(false);
 
   const location = useLocation();
   const history = useHistory();
@@ -104,6 +106,7 @@ const NavBar: React.FC = () => {
             component="div"
             onClick={() => {
               setQuery('');
+              setValue('');
             }}
             sx={{
               flexGrow: 1,
@@ -137,14 +140,14 @@ const NavBar: React.FC = () => {
                 }
               }}
             />
-            <FilterIconWrapper
+            <FilterIcon
               onClick={() => {
-                console.log('123');
-              }}>
-              <FilterListIcon />
-            </FilterIconWrapper>
+                setOpen(true);
+              }}
+            />
           </Search>
         </Toolbar>
+        <BasicModal setOpen={setOpen} open={open} title="Filter Options" />;
       </AppBar>
     </Box>
   );

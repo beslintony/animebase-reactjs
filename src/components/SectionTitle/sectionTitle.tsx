@@ -9,20 +9,22 @@ const SectionContainer = styled(Grid)(({ theme }) => ({
   flexDirection: 'column',
   alignItems: 'left',
   justifyContent: 'space-between',
-
-  maxWidth: '1200px',
+  minWidth: '100%',
 }));
 
 const SectionHeader = styled('div')(({ theme }) => ({
   borderLeft: '3px solid #2c2b2a',
   paddingLeft: '10px',
-  margin: '20px',
-  lineHeight: 1.6,
+  marginLeft: '15px',
+  marginRight: '25px',
+  marginBottom: '15px',
   display: 'flex',
+  alignItems: 'center',
   justifyContent: 'space-between',
+  width: '100%',
 }));
 
-const ViewMore = styled('a')(({ theme }) => ({
+const ViewMore = styled('button')(({ theme }) => ({
   border: 'none',
   padding: '7px 10px',
   backgroundColor: '#5856d6',
@@ -53,14 +55,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title, link }) => {
         <Typography sx={{ color: 'grey', fontWeight: 600, fontSize: '1.2rem' }}>
           {title}
         </Typography>
-        {/* <p style={{ fontSize: '.8rem', margin: '0' }}>Colored Comics.</p> */}
-        <ViewMore
-          title="New Manga titles added to the website."
-          href={link}
-          target="_blank"
-          rel="noreferrer">
-          View More
-        </ViewMore>
+        <ViewMore>View More</ViewMore>
       </SectionHeader>
     </SectionContainer>
   );
