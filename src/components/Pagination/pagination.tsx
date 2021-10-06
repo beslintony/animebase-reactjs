@@ -6,8 +6,8 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 
 import { MediaType } from '../../graphql/globalTypesFile';
 import React from 'react';
-import { pageConfigActionDispatch } from '../AnimeLists/animeLists';
-import { typeSelector } from '../../store/selectors/animeListSelectors';
+import { pageConfigActionDispatch } from '../../store/dispatchers';
+import { typeSelector } from '../../store/selectors';
 
 interface PagiantionProps {
   pageInfo: AnimeListTypes.AnimeList_Page_pageInfo | undefined | null;

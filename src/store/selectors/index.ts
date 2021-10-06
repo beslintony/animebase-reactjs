@@ -19,3 +19,10 @@ export const typeSelector = createSelector(
   makeSelectAnimeList,
   (state) => state.pageConfig.type,
 );
+
+const selectSearchQuery = (state: RootState) => state.searchQuery;
+
+export const SearchQuerySelector = createSelector(
+  selectSearchQuery,
+  (state) => state.query,
+);

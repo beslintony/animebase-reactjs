@@ -1,6 +1,7 @@
 import ReduxLogger from 'redux-logger';
 import animeListReducer from './slices/animeListSlice';
 import { configureStore } from '@reduxjs/toolkit';
+import searchQueryReducer from './slices/searchQuerySlice';
 
 const middleware = (getDefaultMiddleware: any) =>
   getDefaultMiddleware().concat(ReduxLogger);
@@ -9,6 +10,7 @@ export const store = configureStore({
   middleware,
   reducer: {
     animeList: animeListReducer,
+    searchQuery: searchQueryReducer,
   },
 });
 

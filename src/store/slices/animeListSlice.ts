@@ -1,15 +1,24 @@
 import { AnimeListVariables } from '../../graphql/querries/__generated__/AnimeList';
 import { createSlice } from '@reduxjs/toolkit';
-import { useWindowWidth } from '../../hooks';
 
-// let perPageCard = 20;
+let perPageCard = 20;
 
-// console.log('currentScreenWidth', currentScreenWidth);
+if (window.innerWidth > 1177) {
+  perPageCard = 30;
+} else if (window.innerWidth > 936 && window.innerHeight < 1177) {
+  perPageCard = 28;
+} else if (window.innerWidth > 693 && window.innerHeight < 936) {
+  perPageCard = 27;
+} else if (window.innerWidth > 451 && window.innerHeight < 693) {
+  perPageCard = 30;
+} else {
+  perPageCard = 16;
+}
 
 const initialState: AnimeListVariables = {
   type: 'ANIME' as AnimeListVariables['type'],
   page: 0 as AnimeListVariables['page'],
-  perPage: 20 as AnimeListVariables['perPage'],
+  perPage: perPageCard as AnimeListVariables['perPage'],
 };
 
 const animeListSlice = createSlice({

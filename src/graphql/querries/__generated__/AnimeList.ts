@@ -111,6 +111,7 @@ export interface AnimeList {
 }
 
 export interface AnimeListVariables {
+  search?: string | null;
   type: MediaType;
   page: number;
   perPage: number;

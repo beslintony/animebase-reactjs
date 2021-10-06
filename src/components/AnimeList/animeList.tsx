@@ -1,17 +1,10 @@
 import * as AnimeListTypes from '../../graphql/querries/__generated__/AnimeList';
 
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
-import {
-  pageSelector,
-  perPageSelector,
-  typeSelector,
-} from '../../store/selectors/animeListSelectors';
+import { Card, CardMedia } from '@mui/material';
 
 import { Link } from 'react-router-dom';
-import { MediaType } from '../../graphql/globalTypesFile';
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { useAppSelector } from '../../hooks';
 
 const CardMediaContainer = styled('div')`
 background: linear-gradient(
