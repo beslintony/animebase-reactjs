@@ -1,16 +1,20 @@
-import { alpha, styled } from '@mui/material/styles';
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import {
+  pageConfigActionDispatch,
+  searchQueryActionDispatch,
+} from '../../store/dispatchers';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import FilterListIcon from '@mui/icons-material/FilterList';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import { SearchQuerySelector } from '../../store/selectors';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { searchQueryActionDispatch } from '../../store/dispatchers';
+import { styled } from '@mui/material/styles';
+import { useAppDispatch } from '../../hooks';
+import { useState } from 'react';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -22,6 +26,9 @@ const Search = styled('div')(({ theme }) => ({
   },
   marginLeft: 0,
   width: '100%',
+  display: 'flex',
+
+  alignItems: 'center',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),
     width: 'auto',
@@ -33,6 +40,17 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   height: '100%',
   position: 'absolute',
   pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
+
+const FilterIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 1),
+  height: '100%',
+  position: 'relative',
+  pointerEvents: 'none',
+  cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -56,7 +74,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 const NavBar: React.FC = () => {
   const { setQuery } = searchQueryActionDispatch(useAppDispatch());
-  const query = useAppSelector(SearchQuerySelector);
+  const { setPage } = pageConfigActionDispatch(useAppDispatch());
+
+  const [value, setValue] = useState('');
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -84,9 +104,24 @@ const NavBar: React.FC = () => {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              value={value}
+              onChange={(e) => {
+                setValue(e.target.value);
+              }}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  setQuery(value);
+                  setPage(1);
+                }
+              }}
             />
+            <FilterIconWrapper
+              onClick={() => {
+                console.log('123');
+              }}>
+              <FilterListIcon />
+            </FilterIconWrapper>
           </Search>
         </Toolbar>
       </AppBar>

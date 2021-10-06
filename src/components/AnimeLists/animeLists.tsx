@@ -47,6 +47,7 @@ const AnimeLists: React.FC = () => {
       perPage: perPage,
     },
   });
+
   console.log('PAGE_LIST_DATA', data);
 
   if (loading) {
