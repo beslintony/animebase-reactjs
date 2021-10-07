@@ -17,8 +17,6 @@ import { useQuery } from '@apollo/client';
 
 const PaginationContatiner = styled(Grid)({
   display: 'flex',
-  // justifyContent: 'center',
-  // alignItems: 'center',
   marginTop: '3rem',
   marginBottom: '1rem',
   width: '100%',
