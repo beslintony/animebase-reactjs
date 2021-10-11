@@ -10,10 +10,17 @@ interface BasicModalProps {
   open: boolean;
   title?: string;
   body?: JSX.Element;
-  other?: JSX.Element;
+  actions?: JSX.Element;
 }
 
-const BasicModal: React.FC<BasicModalProps> = ({ title, body, setOpen, open, other }) => {
+const BasicModal: React.FC<BasicModalProps> = ({
+  title,
+  body,
+  setOpen,
+  open,
+  actions,
+  children,
+}) => {
   // const handleClickOpen = () => {
   //   setOpen(true);
   // };
@@ -34,8 +41,9 @@ const BasicModal: React.FC<BasicModalProps> = ({ title, body, setOpen, open, oth
           {body ? (
             <DialogContentText id="filter-dialog-description">{body}</DialogContentText>
           ) : null}
+          {children}
         </DialogContent>
-        {other ? <DialogActions>{other}</DialogActions> : null}
+        {actions ? <DialogActions>{actions}</DialogActions> : null}
       </Dialog>
     </div>
   );

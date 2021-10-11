@@ -8,6 +8,7 @@ import AppBar from '@mui/material/AppBar';
 import BasicModal from '../BasicModal/basicModal';
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
+import FilterBox from '../FilterBox/filterBox';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
@@ -147,7 +148,7 @@ const NavBar: React.FC = () => {
             />
           </Search>
         </Toolbar>
-        <BasicModal setOpen={setOpen} open={open} title="Filter Options" />;
+        <FilterBox setOpen={setOpen} open={open} />
       </AppBar>
     </Box>
   );
