@@ -3,7 +3,7 @@ import * as AnimeListTypes from '../../graphql/queries/__generated__/AnimeList';
 
 import { setPage, setPerPage, setType } from '../slices/animeListSlice';
 
-import { Dispatch } from 'react';
+import { Dispatch } from 'redux';
 import { setQuery } from '../slices/searchQuerySlice';
 
 export const pageConfigActionDispatch = (dispatch: Dispatch) => ({

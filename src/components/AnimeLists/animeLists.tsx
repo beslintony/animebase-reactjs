@@ -22,13 +22,20 @@ const PaginationContatiner = styled(Grid)({
   width: '100%',
 });
 
-const AnimeGrid = styled(Grid)({
+const AnimeGrid = styled(Grid)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'flex-start',
   alignItems: 'flex-start',
-  minWidth: '1200px',
+
   minHeight: '80vh',
-});
+  minWidth: '1200px',
+  [theme.breakpoints.down('lg')]: {
+    minWidth: 'auto',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+}));
 
 const Page = styled('main')({
   display: 'flex',
@@ -81,6 +88,7 @@ const AnimeLists: React.FC = () => {
           <AnimeGrid container spacing={2} gap={2}>
             {data?.Page?.media?.map((anime) => (
               <Grid item key={anime?.id}>
+                {/* xs={12} sm={6} md={4} lg={3}> */}
                 <AnimeList anime={anime as AnimeListTypes.AnimeList_Page_media} />
               </Grid>
             ))}

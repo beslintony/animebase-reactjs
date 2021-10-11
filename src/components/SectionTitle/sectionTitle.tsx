@@ -10,6 +10,12 @@ const SectionContainer = styled(Grid)(({ theme }) => ({
   alignItems: 'left',
   justifyContent: 'space-between',
   minWidth: '100%',
+  [theme.breakpoints.down('lg')]: {
+    padding: '1rem',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 }));
 
 const SectionHeader = styled('div')(({ theme }) => ({
