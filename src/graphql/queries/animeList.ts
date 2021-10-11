@@ -1,9 +1,9 @@
 import { gql } from '@apollo/client';
 
 export const ANIME_LIST = gql`
-  query AnimeList(sort: [MediaSort], $search: String, $type: MediaType!, $page: Int!, $perPage: Int!) {
+  query AnimeList($search: String, $type: MediaType!, $page: Int!, $perPage: Int!) {
     Page(page: $page, perPage: $perPage) {
-      media(type: $type, search: $search, sort: $sort) {
+      media(type: $type, search: $search) {
         id
         idMal
         title {

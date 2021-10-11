@@ -3,14 +3,14 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { MediaType, MediaStatus } from "./../../globalTypesFile";
+import { MediaStatus, MediaType } from '../../globalTypesFile';
 
 // ====================================================
 // GraphQL query operation: AnimeList
 // ====================================================
 
 export interface AnimeList_Page_media_title {
-  __typename: "MediaTitle";
+  __typename: 'MediaTitle';
   /**
    * The romanization of the native language title
    */
@@ -26,7 +26,7 @@ export interface AnimeList_Page_media_title {
 }
 
 export interface AnimeList_Page_media_coverImage {
-  __typename: "MediaCoverImage";
+  __typename: 'MediaCoverImage';
   /**
    * The cover image url of the media at its largest size. If this size isn't available, large will be provided instead.
    */
@@ -46,7 +46,7 @@ export interface AnimeList_Page_media_coverImage {
 }
 
 export interface AnimeList_Page_media {
-  __typename: "Media";
+  __typename: 'Media';
   /**
    * The id of the media
    */
@@ -74,7 +74,7 @@ export interface AnimeList_Page_media {
 }
 
 export interface AnimeList_Page_pageInfo {
-  __typename: "PageInfo";
+  __typename: 'PageInfo';
   /**
    * The total number of items
    */
@@ -98,7 +98,7 @@ export interface AnimeList_Page_pageInfo {
 }
 
 export interface AnimeList_Page {
-  __typename: "Page";
+  __typename: 'Page';
   media: (AnimeList_Page_media | null)[] | null;
   /**
    * The pagination information

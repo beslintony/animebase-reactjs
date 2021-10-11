@@ -1,5 +1,5 @@
-import { ANIME_LIST } from '../../graphql/querries/animeList';
-import { AnimeList } from '../../graphql/querries/__generated__/AnimeList';
+import { ANIME_LIST } from '../../graphql/queries/animeList';
+import { AnimeList } from '../../graphql/queries/__generated__/AnimeList';
 import { MediaType } from '../../graphql/globalTypesFile';
 import { apolloClient } from '../../graphql';
 

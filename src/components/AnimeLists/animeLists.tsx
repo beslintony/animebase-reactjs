@@ -1,4 +1,4 @@
-import * as AnimeListTypes from '../../graphql/querries/__generated__/AnimeList';
+import * as AnimeListTypes from '../../graphql/queries/__generated__/AnimeList';
 
 import { AnimeList, Loading, Pagination, SectionTitle } from '..';
 import {
@@ -8,7 +8,7 @@ import {
   typeSelector,
 } from '../../store/selectors';
 
-import { ANIME_LIST } from '../../graphql/querries/animeList';
+import { ANIME_LIST } from '../../graphql/queries/animeList';
 import { Grid } from '@mui/material';
 import NoResultsFound from '../NoResultsFound/noResultsFound';
 import { styled } from '@mui/material/styles';

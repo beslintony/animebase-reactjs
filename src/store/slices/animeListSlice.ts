@@ -1,4 +1,4 @@
-import { AnimeListVariables } from '../../graphql/querries/__generated__/AnimeList';
+import { AnimeListVariables } from '../../graphql/queries/__generated__/AnimeList';
 import { createSlice } from '@reduxjs/toolkit';
 
 let perPageCard = 20;

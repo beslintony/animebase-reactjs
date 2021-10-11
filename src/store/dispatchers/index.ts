@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import * as AnimeListTypes from '../../graphql/querries/__generated__/AnimeList';
+import * as AnimeListTypes from '../../graphql/queries/__generated__/AnimeList';
 
 import { setPage, setPerPage, setType } from '../slices/animeListSlice';
 

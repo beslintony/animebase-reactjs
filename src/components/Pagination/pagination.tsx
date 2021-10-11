@@ -1,4 +1,4 @@
-import * as AnimeListTypes from '../../graphql/querries/__generated__/AnimeList';
+import * as AnimeListTypes from '../../graphql/queries/__generated__/AnimeList';
 
 import { Link, Route, useLocation } from 'react-router-dom';
 import { Pagination as MatPagination, PaginationItem } from '@mui/material';

@@ -1,4 +1,4 @@
-import * as AnimeListTypes from '../../graphql/querries/__generated__/AnimeList';
+import * as AnimeListTypes from '../../graphql/queries/__generated__/AnimeList';
 
 import { Card, CardMedia } from '@mui/material';
 
