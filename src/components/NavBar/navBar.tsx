@@ -5,9 +5,7 @@ import {
 } from '../../store/dispatchers';
 
 import AppBar from '@mui/material/AppBar';
-import BasicModal from '../BasicModal/basicModal';
 import Box from '@mui/material/Box';
-import { Button } from '@mui/material';
 import FilterBox from '../FilterBox/filterBox';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import IconButton from '@mui/material/IconButton';
@@ -135,7 +133,7 @@ const NavBar: React.FC = () => {
                   setQuery(value);
                   setPage(1);
                   history.push({
-                    pathname: '/',
+                    pathname: '/browse',
                     search: `?search=${value}`,
                   });
                 }

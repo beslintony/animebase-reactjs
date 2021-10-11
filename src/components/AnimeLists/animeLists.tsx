@@ -45,7 +45,12 @@ const Page = styled('main')({
   maxWidth: '1200px',
 });
 
-const AnimeLists: React.FC = () => {
+interface AnimeListProps {
+  displayType?: AnimeListTypes.AnimeListVariables['type'];
+  perPageProps?: number;
+}
+
+const AnimeLists: React.FC<AnimeListProps> = ({ displayType, perPageProps }) => {
   const page = useAppSelector(pageSelector);
   const perPage = useAppSelector(perPageSelector);
   const type = useAppSelector(typeSelector);
@@ -57,9 +62,9 @@ const AnimeLists: React.FC = () => {
   >(ANIME_LIST, {
     variables: {
       search: query.length ? query : null,
-      type: type as AnimeListTypes.AnimeListVariables['type'],
+      type: displayType ?? (type as AnimeListTypes.AnimeListVariables['type']),
       page: page,
-      perPage: perPage,
+      perPage: perPageProps ?? perPage,
     },
   });
 

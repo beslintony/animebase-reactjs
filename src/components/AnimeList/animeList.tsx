@@ -125,7 +125,7 @@ const AnimeList: React.FC<animeListProps> = ({ anime }) => {
             <StatusOverlay>{anime?.status}</StatusOverlay>
             <CardContentContainer>
               <CardContentTitle>
-                {title && title?.length > 24 ? title?.substr(0, 24) + '\u2026' : title}
+                {title && title?.length > 18 ? title?.substr(0, 18) + '\u2026' : title}
               </CardContentTitle>
             </CardContentContainer>
           </OverlayContainer>
