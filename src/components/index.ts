@@ -4,3 +4,5 @@ export { default as Loading } from './Loading/loading';
 export { default as Pagination } from './Pagination/pagination';
 export { default as NavBar } from './NavBar/navBar';
 export { default as SectionTitle } from './SectionTitle/sectionTitle';
+export { default as HeroSection } from './HeroSection/heroSection';
+export { default as SearchBar } from './SearchBar/searchBar';

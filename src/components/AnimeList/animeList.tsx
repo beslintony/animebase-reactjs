@@ -7,30 +7,23 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 
 const CardMediaContainer = styled('div')`
-background: linear-gradient(
-  to bottom,
-  rgba(0, 0, 0, 0) 41%,
-  rgba(0, 0, 0, 0.65) 100%,
-  black
-);
-position: relative;
+  // backgroundColor: linear-gradient(
+  //   to bottom,
+  //   rgba(0, 0, 0, 0) 41%,
+  //   rgba(0, 0, 0, 0.65) 100%,
+  //   black
+  // );
+  // position: relative;
 
-animation: animateImage 1s;
-@keyframes animateImage {
-  from {
-    opacity: 0;
+  animation: animateImage 1s;
+  @keyframes animateImage {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.8;
+    }
   }
-  to {
-    opacity: 1;
-  }
-}
-&: hover {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 51%,
-    rgba(0, 0, 0, 0.65) 60%,
-    black
-  );
 `;
 
 const StatusOverlay = styled('div')`
@@ -111,7 +104,11 @@ const AnimeList: React.FC<animeListProps> = ({ anime }) => {
 
   return (
     <>
-      <Card sx={{ width: 210, boxShadow: 5 }}>
+      <Card
+        sx={{
+          width: 210,
+          boxShadow: 5,
+        }}>
         <Link to={`/${anime?.type?.toLowerCase()}/${anime?.id}`}>
           <CardMediaContainer>
             <CardMedia
