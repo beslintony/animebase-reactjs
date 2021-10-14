@@ -50,7 +50,7 @@ const ViewMore = styled('button')(({ theme }) => ({
 }));
 
 interface SectionTitleProps {
-  link: string;
+  link?: string;
   title: string;
 }
 
@@ -61,7 +61,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title, link }) => {
         <Typography sx={{ color: 'grey', fontWeight: 600, fontSize: '1.2rem' }}>
           {title}
         </Typography>
-        <ViewMore>View More</ViewMore>
+        {link && <ViewMore>View More</ViewMore>}
       </SectionHeader>
     </SectionContainer>
   );
