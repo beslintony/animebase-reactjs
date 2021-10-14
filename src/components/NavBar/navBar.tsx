@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import { Button } from '@mui/material';
 import FilterBox from '../FilterBox/filterBox';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -29,7 +30,6 @@ const NavBar: React.FC = () => {
     const URLQuery = location.search.slice(8);
     setQuery(URLQuery);
   }
-  console.log(query.length);
 
   useEffect(() => {
     query.length && setValue(query);
@@ -39,14 +39,6 @@ const NavBar: React.FC = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent">
         <Toolbar sx={{ flexGrow: 1, boxShadow: 3 }}>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
           <Typography
             variant="h6"
             noWrap
@@ -57,14 +49,32 @@ const NavBar: React.FC = () => {
             }}
             sx={{
               flexGrow: 1,
-              display: { xs: 'none', sm: 'block' },
+              display: { sm: 'block' },
               textDecoration: 'none',
             }}>
             <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/">
-              ANIMEBASE
+              <div style={{ display: 'flex', boxShadow: '3' }}>
+                <div
+                  style={{
+                    background: '#ff4a4a',
+                    padding: '4px 1px 4px 4px',
+                  }}>
+                  ANIME
+                </div>
+                <div
+                  style={{
+                    background: '#1c4b41',
+                    color: 'WHITE',
+                    padding: '4px 4px 4px 1px',
+                  }}>
+                  BASE
+                </div>
+              </div>
             </Link>
           </Typography>
-          <SearchBar setOpen={setOpen} filter value={value} setValue={setValue} />
+          {location.pathname !== '/' && (
+            <SearchBar setOpen={setOpen} filter value={value} setValue={setValue} />
+          )}
         </Toolbar>
         <FilterBox setOpen={setOpen} open={open} />
       </AppBar>

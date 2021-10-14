@@ -7,7 +7,7 @@ import { NavBar } from './components';
 
 const App: React.FC = () => {
   return (
-    <>
+    <div style={{ minHeight: '100vh' }}>
       <Router>
         <NavBar />
         <Switch>
@@ -25,7 +25,7 @@ const App: React.FC = () => {
           </Route>
         </Switch>
       </Router>
-    </>
+    </div>
   );
 };
 
