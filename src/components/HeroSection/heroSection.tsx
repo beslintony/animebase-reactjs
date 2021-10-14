@@ -51,15 +51,7 @@ const HeroSection: React.FC = () => {
           <div
             style={{
               display: 'flex',
-              // color: ' #f2f2f2',
-              // background: '#ff4a4a',
-              // fontSize: '75px',
-              // lineHeight: ' 74px',
-              // fontWeight: 700,
-              // margin: '0 5px 24px',
-              // float: 'left',
               padding: '5rem',
-              // margin: '0 5px 24px',
             }}>
             <div
               style={{
