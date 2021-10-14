@@ -86,10 +86,7 @@ const AnimeLists: React.FC<AnimeListProps> = ({ displayType, perPageProps }) => 
     <>
       {data?.Page?.pageInfo?.total ? (
         <Page>
-          <SectionTitle
-            title={type.charAt(0) + type.slice(1).toLowerCase() + ' List'}
-            link="/viewmore"
-          />
+          <SectionTitle title={type.charAt(0) + type.slice(1).toLowerCase() + ' List'} />
           <AnimeGrid container spacing={2} gap={2}>
             {data?.Page?.media?.map((anime) => (
               <Grid item key={anime?.id}>

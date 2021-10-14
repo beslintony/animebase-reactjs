@@ -1,3 +1,4 @@
+import { SxProps, Theme } from '@mui/system';
 import {
   pageConfigActionDispatch,
   searchQueryActionDispatch,
@@ -65,18 +66,25 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 interface SearchBarProps {
   setValue: React.Dispatch<React.SetStateAction<string>>;
   value: string;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
   filter?: boolean;
+  styles?: SxProps<Theme>;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ setValue, value, setOpen, filter }) => {
+const SearchBar: React.FC<SearchBarProps> = ({
+  setValue,
+  value,
+  setOpen,
+  filter,
+  styles,
+}) => {
   const { setQuery } = searchQueryActionDispatch(useAppDispatch());
   const { setPage } = pageConfigActionDispatch(useAppDispatch());
 
   const history = useHistory();
 
   return (
-    <Search sx={{ boxShadow: 1 }}>
+    <Search sx={{ boxShadow: 1, ...styles }}>
       <SearchIconWrapper>
         <SearchIcon />
       </SearchIconWrapper>
@@ -99,7 +107,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setValue, value, setOpen, filter 
           }
         }}
       />
-      {filter && (
+      {setOpen && filter && (
         <FilterIcon
           onClick={() => {
             setOpen(true);

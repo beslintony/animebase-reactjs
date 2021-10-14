@@ -1,8 +1,8 @@
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import { Anime } from './containers/Home/Anime';
+import { Anime } from './containers/Anime';
 import { Home } from './containers/Home/Home';
-import { Manga } from './containers/Home/Manga';
+import { Manga } from './containers/Manga';
 import { NavBar } from './components';
 
 const App: React.FC = () => {
