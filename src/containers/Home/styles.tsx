@@ -6,6 +6,5 @@ export const PaperBackground = styled(Paper)({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  minHeight: '100vh',
   backgroundColor: '#212121',
 });

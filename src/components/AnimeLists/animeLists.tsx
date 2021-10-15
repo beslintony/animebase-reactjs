@@ -83,7 +83,7 @@ const AnimeLists: React.FC<AnimeListProps> = ({ displayType, perPageProps }) => 
   }
 
   return (
-    <>
+    <div style={{ minHeight: '100vh' }}>
       {data?.Page?.pageInfo?.total ? (
         <Page>
           <SectionTitle title={type.charAt(0) + type.slice(1).toLowerCase() + ' List'} />
@@ -104,7 +104,7 @@ const AnimeLists: React.FC<AnimeListProps> = ({ displayType, perPageProps }) => 
       ) : (
         <NoResultsFound />
       )}
-    </>
+    </div>
   );
 };
 

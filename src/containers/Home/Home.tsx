@@ -13,8 +13,6 @@ export const Home: React.FC = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        // minHeight: '100vh',
-        // background: '#212121',
       }}>
       {query.length ? <AnimeLists /> : <HeroSection />}
     </Paper>

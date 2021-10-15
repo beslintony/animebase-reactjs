@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 
 import { SearchBar } from '..';
-import background from '../../assets/2.jpg';
-import { styled } from '@mui/system';
-import { useMediaQuery } from '@mui/material';
+import background from '../../assets/4.webp';
 
 const HeroSection: React.FC = () => {
   const [value, setValue] = useState('');
